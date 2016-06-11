@@ -25,8 +25,12 @@ public class Luces : MonoBehaviour {
             _colorStartTime = Time.time;
             _changingColor = true;
         }
-        if (_changingColor && Time.time - _colorStartTime >= colorDuration) {
+        if (_changingColor ) {
             _light.color = Color.Lerp(_startColor, _endColor, (Time.time - _colorStartTime) / colorDuration);
+            if( Time.time - _colorStartTime >= colorDuration ) {
+                _changingColor = false;
+                _startColor = _light.color;
+            }
         }
     }
 
