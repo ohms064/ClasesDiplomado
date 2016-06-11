@@ -21,7 +21,6 @@ public class Vigas : MonoBehaviour {
             yield return new WaitForFixedUpdate();
         }
         StartCoroutine("goBackward");
-        yield return null;
     }
 
     public IEnumerator goBackward() {
@@ -31,7 +30,6 @@ public class Vigas : MonoBehaviour {
             yield return new WaitForFixedUpdate();
         }
         StartCoroutine("goForward");
-        yield return null;
     }
 
 

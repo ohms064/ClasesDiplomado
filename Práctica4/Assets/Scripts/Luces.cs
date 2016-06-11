@@ -41,7 +41,6 @@ public class Luces : MonoBehaviour {
             yield return new WaitForFixedUpdate();
         }
         StartCoroutine("BackwardRotation");
-        yield return null;
     }
 
     IEnumerator BackwardRotation() {
@@ -51,6 +50,5 @@ public class Luces : MonoBehaviour {
             yield return new WaitForFixedUpdate();
         }
         StartCoroutine("ForwardRotation");
-        yield return null;
     }
 }
