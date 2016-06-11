@@ -22,7 +22,6 @@ public class PlayerCharacterController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         vectorMovement = Vector3.zero;
-        print(ch.isGrounded);
         if (!ch.isGrounded) {
             vectorMovement.y -= 0.1f;
         }
@@ -57,5 +56,12 @@ public class PlayerCharacterController : MonoBehaviour {
         angleX = Mathf.Clamp(angleX, -45.0f, 45.0f);
         childCamera.localEulerAngles = new Vector3(angleX, childCamera.localEulerAngles.y, childCamera.localEulerAngles.z);
 
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit) {
+        if(hit.transform.name == "Cube") {
+            hit.transform.GetComponent<MeshRenderer>().material.color = Color.gray;
+            hit.rigidbody.AddForce(200.0f * hit.moveDirection, ForceMode.Impulse);
+        }
     }
 }
