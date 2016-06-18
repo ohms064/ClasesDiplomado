@@ -9,7 +9,6 @@ public class Crosshair : MonoBehaviour {
     private Camera currentCamera;
     private Ray crossRay;
     private RaycastHit hit;
-    private LineRenderer line;
 
 	// Use this for initialization
 	void Start () {
