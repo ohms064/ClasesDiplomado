@@ -42,7 +42,7 @@ public class CarSelector : MonoBehaviour {
                     case SelectorState.TERRAIN_SELECTION:
                         if(hit.transform.tag != "Car") {
                             destPosition = hit.point;
-                            tmpCar.SendMessage("Move", destPosition, SendMessageOptions.DontRequireReceiver);
+                            tmpCar.SendMessage("Rotate", destPosition, SendMessageOptions.DontRequireReceiver);
                         }
                         currentState = SelectorState.CAR_SELECTION;
                         break;
