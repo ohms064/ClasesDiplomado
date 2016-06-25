@@ -28,14 +28,18 @@ public class CarController : MonoBehaviour {
 
             //_rigidbody.MoveRotation(Quaternion.Euler(Vector3.Lerp(_startRotation, _destRotation, (Time.time - _startTime) / rotationSpeed)));
             this.transform.LookAt(_destPosition);
-            print(string.Format("rotacion: {0} destino: {1} lerp: {2}", this.transform.localEulerAngles, _destRotation, Time.time - _startTime));
+            
+            _rotating = false;
+            Move();
         }
 
         if (Time.time - _startTime >= translateSpeed && _moving) _moving = false;
+        /*
         if (Time.time - _startTime >= rotationSpeed && _rotating) {
             _rotating = false;
             Move();
         }
+        */
     }
 
     public void Move() {
