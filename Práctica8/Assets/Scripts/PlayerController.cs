@@ -23,14 +23,29 @@ public class PlayerController : MonoBehaviour {
         _startColliderHeight = _capsule.height;
         _playerAnimator = this.GetComponent<Animator>();
         StartCoroutine("Move");
-	}
-	
-	// Update is called once per frame
+        StartCoroutine("BurstParticles");
+        particles.Stop();
+    }
+
+    IEnumerator BurstParticles() {
+        while (true) {
+            if (_playerAnimator.GetFloat("Direction") > 0.0f && particles.isStopped && !_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Jump")) {
+                particles.Play();
+                yield return new WaitForSeconds(1.0f);
+            }
+            else if (particles.isPlaying) {
+                particles.Stop();
+                yield return new WaitForFixedUpdate();
+            }
+        }
+    }
+
 	IEnumerator Move () {
         while (true) {
 #if UNITY_STANDALONE || UNITY_EDITOR
             _playerAnimator.SetFloat("Direction", Input.GetAxis("Horizontal"));
             _playerAnimator.SetFloat("Speed", Input.GetAxis("Vertical"));
+
             if (Input.GetKeyDown(KeyCode.Space)) {
                 _playerAnimator.SetTrigger("Jump");
             }
@@ -74,6 +89,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     IEnumerator JumpState() {
+        //particles.emission.enabled = false;
         while (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Jump")) {
             _capsule.height = _playerAnimator.GetFloat("ColliderHeight");
             yield return new WaitForFixedUpdate();
@@ -96,4 +112,5 @@ public class PlayerController : MonoBehaviour {
         
     }
 #endif
+
 }

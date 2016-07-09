@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour {
 
@@ -30,6 +31,10 @@ public class Manager : MonoBehaviour {
         foreach (Spawner spawner in spawners) {
             spawner.enabled = true;
         }
+    }
+
+    public static void Reset() {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
 }
