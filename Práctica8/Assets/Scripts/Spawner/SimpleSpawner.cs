@@ -17,6 +17,7 @@ public class SimpleSpawner : Spawner {
 
     private Transform _nextWaypoint;
     private int _numObj;
+    private GameObject newObject;
 
     void Start() {
         StartCoroutine("SpawnObject");
@@ -29,7 +30,8 @@ public class SimpleSpawner : Spawner {
         yield return new WaitForSeconds( instantiateEverySeconds * (int)spawnerBegin );
         while ( _numObj < maxObjects ) {
             _numObj++;
-            Instantiate( spawnObject, this.transform.position, this.transform.rotation );
+            newObject = (GameObject) Instantiate( spawnObject, this.transform.position, this.transform.rotation );
+            Manager.enemigos.Add(newObject.GetComponent<EnemyController>());
             yield return new WaitForSeconds( instantiateEverySeconds );
         }
         spawning = false;
