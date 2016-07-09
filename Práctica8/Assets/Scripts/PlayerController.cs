@@ -4,7 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(CapsuleCollider))]
 public class PlayerController : MonoBehaviour {
 
-    public ParticleSystem particles;
     public float damage = 5.0f;
 
     private Animator _playerAnimator;
@@ -23,21 +22,6 @@ public class PlayerController : MonoBehaviour {
         _startColliderHeight = _capsule.height;
         _playerAnimator = this.GetComponent<Animator>();
         StartCoroutine("Move");
-        StartCoroutine("BurstParticles");
-        particles.Stop();
-    }
-
-    IEnumerator BurstParticles() {
-        while (true) {
-            if (_playerAnimator.GetFloat("Direction") > 0.0f && particles.isStopped && !_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Jump")) {
-                particles.Play();
-                yield return new WaitForSeconds(1.0f);
-            }
-            else if (particles.isPlaying) {
-                particles.Stop();
-                yield return new WaitForFixedUpdate();
-            }
-        }
     }
 
 	IEnumerator Move () {
