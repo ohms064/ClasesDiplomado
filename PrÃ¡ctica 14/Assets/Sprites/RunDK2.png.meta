@@ -1,9 +1,15 @@
 fileFormatVersion: 2
 guid: 981255197fd4a304ea2932447ac9b8a5
-timeCreated: 1468630429
+timeCreated: 1468632410
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: RunDK2_0
+    21300002: RunDK2_1
+    21300004: RunDK2_2
+    21300006: RunDK2_3
+    21300008: RunDK2_4
+    21300010: RunDK2_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +36,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +44,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,7 +56,153 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: RunDK2_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 12
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 18.5}
+        - {x: -21, y: 7.5}
+        - {x: -21, y: -18.5}
+        - {x: 12, y: -18.5}
+        - {x: 21, y: -5.5}
+        - {x: 21, y: 18.5}
+      tessellationDetail: 0
+    - name: RunDK2_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 10
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 20}
+        - {x: -19, y: 13}
+        - {x: -19, y: -18}
+        - {x: -15, y: -20}
+        - {x: 4, y: -20}
+        - {x: 19, y: -3}
+        - {x: 19, y: 20}
+      tessellationDetail: 0
+    - name: RunDK2_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 7
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 24}
+        - {x: -7, y: 24}
+        - {x: -16, y: 14}
+        - {x: -20, y: 3}
+        - {x: -20, y: -24}
+        - {x: -3, y: -24}
+        - {x: 14, y: -17}
+        - {x: 20, y: -6}
+        - {x: 20, y: 20}
+      - - {x: -7, y: -16}
+        - {x: -10, y: -16}
+        - {x: -11, y: -17}
+        - {x: -10, y: -17}
+        - {x: -7, y: -11}
+        - {x: -8, y: -9}
+        - {x: -9, y: -12}
+        - {x: -6, y: -16}
+        - {x: -5, y: -18}
+        - {x: -5, y: -17}
+      tessellationDetail: 0
+    - name: RunDK2_3
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 11
+        width: 66
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 19.5}
+        - {x: -33, y: 4.5}
+        - {x: -33, y: -18.5}
+        - {x: -32, y: -19.5}
+        - {x: 14, y: -19.5}
+        - {x: 30, y: -13.5}
+        - {x: 33, y: -12.5}
+        - {x: 33, y: 5.5}
+        - {x: 28, y: 19.5}
+      tessellationDetail: 0
+    - name: RunDK2_4
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 8
+        width: 61
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.5, y: -21.5}
+        - {x: 21.5, y: -16.5}
+        - {x: 30.5, y: -4.5}
+        - {x: 30.5, y: 15.5}
+        - {x: 25.5, y: 21.5}
+        - {x: -8.5, y: 21.5}
+        - {x: -30.5, y: -7.5}
+        - {x: -30.5, y: -20.5}
+        - {x: -28.5, y: -21.5}
+        - {x: -17.5, y: -21.5}
+        - {x: -17.5, y: -18.5}
+        - {x: -16.5, y: -20.5}
+        - {x: -15.5, y: -21.5}
+      tessellationDetail: 0
+    - name: RunDK2_5
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 5
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: -20.5}
+        - {x: -9, y: -23.5}
+        - {x: -6, y: -23.5}
+        - {x: 4, y: -20.5}
+        - {x: 7, y: -18.5}
+        - {x: 3, y: -10.5}
+        - {x: 6, y: -12.5}
+        - {x: 15, y: -15.5}
+        - {x: 26, y: -0.5}
+        - {x: 26, y: 10.5}
+        - {x: 17, y: 23.5}
+        - {x: -1, y: 23.5}
+        - {x: -8, y: 22.5}
+        - {x: -18, y: 13.5}
+        - {x: -26, y: -10.5}
+        - {x: -26, y: -23.5}
+        - {x: -11, y: -23.5}
+        - {x: -11, y: -19.5}
+        - {x: -13, y: -17.5}
+        - {x: -11, y: -17.5}
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
