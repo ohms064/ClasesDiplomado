@@ -5,6 +5,9 @@ public class DoorController : MonoBehaviour {
 
     public float openTime = 2.0f;
     public float closeTime = 5.0f;
+    public AudioClip doorAudio;
+
+    private AudioSource _doorSource;
     private Animator _animator;
     private MeshRenderer _renderer;
 
@@ -13,6 +16,7 @@ public class DoorController : MonoBehaviour {
         _animator = this.GetComponent<Animator>();
         StartCoroutine("OpenClose");
         _renderer = this.GetComponent<MeshRenderer>();
+        _doorSource = GetComponent<AudioSource>();
 	}
 
     IEnumerator OpenClose() {
@@ -30,5 +34,15 @@ public class DoorController : MonoBehaviour {
 
     public void CloseDoor() {
         _renderer.material.color = Color.blue;
+    }
+
+    public void PlaySound() {
+        StartCoroutine("Sound");
+    }
+
+    IEnumerator Sound() {
+        _doorSource.PlayOneShot(doorAudio);
+        yield return new WaitForSeconds(0.5f);
+        _doorSource.Stop();
     }
 }

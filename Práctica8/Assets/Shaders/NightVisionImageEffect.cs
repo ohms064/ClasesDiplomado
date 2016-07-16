@@ -4,8 +4,8 @@ using System.Collections;
 public class NightVisionImageEffect : MonoBehaviour 
 {
 	public Shader nightVisionShader;
-	public float contrast= 2.0f;
-	public float brightness= 1.0f;
+	[Range(0.0f, 4.0f)] public float contrast= 2.0f;
+	[Range(0.0f, 2.0f)]public float brightness= 1.0f;
 	public Color nightVisionColor = Color.white;
 	public Texture2D vignetteTexture;
 	public Texture2D scanLineTexture;
@@ -13,8 +13,8 @@ public class NightVisionImageEffect : MonoBehaviour
 	public Texture2D nightVisionNoise;
 	public float noiseXSpeed = 100.0f;
 	public float noiseYSpeed= 100.0f;
-	public float distorsion = 0.2f;
-	public float scale= 0.8f;
+	[Range(-1.0f, 1.0f)] public float distorsion = 0.2f;
+	[Range(0.0f, 3.0f)] public float scale= 0.8f;
 	private float randomValue = 0.0f;
 	private Material currentMaterial;
 
@@ -40,7 +40,7 @@ public class NightVisionImageEffect : MonoBehaviour
 			material.SetColor ("_NightVisionColor", nightVisionColor);
 			material.SetFloat ("_RandomValue", randomValue);
 			material.SetFloat ("_distortion", distorsion);
-			material.SetFloat ("_Scale", scale);
+			material.SetFloat ("_scale", scale);
 			if (vignetteTexture)
 				material.SetTexture ("_VignetteTex",vignetteTexture);
 			if (scanLineTexture) 
@@ -60,10 +60,6 @@ public class NightVisionImageEffect : MonoBehaviour
 
 	void Update()
 	{
-		contrast = Mathf.Clamp (contrast, 0f, 4f);
-		brightness = Mathf.Clamp (brightness, 0f, 2f);
 		randomValue = Random.Range (-1f,1f);
-		distorsion = Mathf.Clamp (distorsion, -1f, 1f);
-		scale = Mathf.Clamp (scale, 0f,3f);
 	}
 }

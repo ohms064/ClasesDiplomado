@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour {
     private Animator _enemyAnimator;
     private NavMeshAgent _agent;
     private EnemyState _currentState;
+    private EnemyFX _fx;
 
     private bool iKilledYou = false;
 
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour {
         _maxLifePoints = lifePoints;
         _enemyAnimator = this.GetComponent<Animator>();
         _agent = this.GetComponent<NavMeshAgent>();
+        _fx = GetComponent<EnemyFX>();
         _startPosition = this.transform.position;
         _currentState = EnemyState.BEGIN_PATROL;
         StartCoroutine("SwitchStates");
@@ -116,6 +118,8 @@ public class EnemyController : MonoBehaviour {
 
     public void Die() {
         Stop();
+        _fx.EmitParticles();
+        Manager.enemigos.Remove(this);
         GetComponent<Collider>().enabled = false;
         _enemyAnimator.SetBool("Death", true);
         _enemyAnimator.SetFloat("Direction", 0);

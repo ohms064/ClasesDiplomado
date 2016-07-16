@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 public class PlayerController : MonoBehaviour {
 
     public float damage = 5.0f;
+    [HideInInspector]public bool isWalking = false;
 
     private Animator _playerAnimator;
     private CapsuleCollider _capsule;
@@ -26,9 +28,10 @@ public class PlayerController : MonoBehaviour {
 
 	IEnumerator Move () {
         while (true) {
-#if UNITY_STANDALONE || UNITY_EDITOR
             _playerAnimator.SetFloat("Direction", Input.GetAxis("Horizontal"));
             _playerAnimator.SetFloat("Speed", Input.GetAxis("Vertical"));
+
+            isWalking = _playerAnimator.GetFloat("Speed") > 0.2f;
 
             if (Input.GetKeyDown(KeyCode.Space)) {
                 _playerAnimator.SetTrigger("Jump");
@@ -52,22 +55,6 @@ public class PlayerController : MonoBehaviour {
             }
             else { _capsule.height = _startColliderHeight; }
 
-# elif UNITY_IOS || UNITY_ANDROID
-            accel = Input.acceleration;
-            _playerAnimator.SetFloat("Direction", accel.x);
-            for(int i = 0; i < Input.touchCount; i++) {
-                finger = Input.GetTouch(i);
-                if (finger.position.x > Screen.width * 0.5f) {
-                    _playerAnimator.SetFloat("Speed", 1.0f);
-                }
-                else if(finger.phase == TouchPhase.Began){
-                    _playerAnimator.SetTrigger("Jump");
-                }
-            }
-            if(Input.touchCount == 0) {
-                _playerAnimator.SetFloat("Speed", 0.0f);
-            }
-#endif
             yield return new WaitForFixedUpdate();
         }
     }
