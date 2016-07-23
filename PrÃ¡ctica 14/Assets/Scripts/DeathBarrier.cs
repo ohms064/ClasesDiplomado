@@ -8,7 +8,7 @@ public class DeathBarrier : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll) {
         if (coll.transform.CompareTag("Player")){
-            SceneManager.LoadScene(0);
+            coll.gameObject.GetComponent<PlayerController>().ResetGame();
         }
     }
 }

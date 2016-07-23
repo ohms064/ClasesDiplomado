@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour
 	{
 		facebookComposerPanel.SetActive (false);
 		shareButton.SetActive (true);
-	}
+
+    }
 
 	public void ShareToFacebook ()
 	{
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
 		shareButton.SetActive (false);
 		Utilities.instance.captureScreenShotCallback += ScreenShotCallback;
 		Utilities.instance.TakeScreenShot ();
+        AnalyticsManager.instance.ScreenEvent("FacebookShare Screen");
 		Time.timeScale = 0f;
 	}
 
@@ -37,6 +39,7 @@ public class UIManager : MonoBehaviour
         FacebookManager.instance.ShareMessage(message2Share.text, Utilities.instance.screenShot);
 		shareButton.SetActive (true);
 		Time.timeScale = 1f;
+        AnalyticsManager.instance.RegisterEvent("Social", "Facebook Share", "Facebook", (long)Time.time);
 	}
 
 	public void ScreenShotCallback()
