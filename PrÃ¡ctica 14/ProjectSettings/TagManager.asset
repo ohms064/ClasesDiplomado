@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Barrel
+  - Banana
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -40,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3339789419
+    locked: 0
+  - name: Game
+    uniqueID: 3381405679
+    locked: 0
+  - name: Effects
+    uniqueID: 4172481489
+    locked: 0
+  - name: GUI
+    uniqueID: 337147829
     locked: 0
